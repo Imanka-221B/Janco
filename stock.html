@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Material Stock</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background-color: #f8f9fa;
+            padding: 20px;
+        }
+        .form-container {
+            max-width: 600px;
+            margin: auto;
+            background: #fff;
+            padding: 20px;
+            border-radius: 15px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        .form-label {
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div class="form-container">
+        <h3 class="text-center mb-4">Material Stock</h3>
+        <form id="materialForm">
+            <div class="mb-3">
+                <label for="material" class="form-label">Select a Material</label>
+                <select id="material" class="form-select">
+                    <option value="Cements">Cements</option>
+                    <option value="Sands">Sands</option>
+                    <option value="Concrete Stones">Concrete Stones</option>
+                    <option value="Concrete Wire">Concrete Wire</option>
+                </select>
+            </div>
+            <div class="mb-3">
+                <label for="supplier" class="form-label">Select a Supplier</label>
+                <select id="supplier" class="form-select">
+                    <option value="Sadaruwan Hardware & Suppliers">Sadaruwan Hardware & Suppliers</option>
+                    <option value="Amila Constructions">Amila Constructions</option>
+                    <option value="Maliban Supplies">Maliban Supplies</option>
+                </select>
+            </div>
+            <div class="mb-3">
+                <label for="constructionArea" class="form-label">Select the Construction Area</label>
+                <select id="constructionArea" class="form-select">
+                    <option value="Rajagiriya Project">Rajagiriya Project</option>
+                    <option value="Colombo Project">Colombo Project</option>
+                    <option value="Kandy Project">Kandy Project</option>
+                </select>
+            </div>
+            <div class="mb-3">
+                <label for="quantity" class="form-label">Quantity</label>
+                <div class="input-group">
+                    <input type="number" id="quantity" class="form-control" placeholder="Enter quantity">
+                    <select id="unit" class="form-select">
+                        <option value="Pack">Pack</option>
+                        <option value="Kg">Kg</option>
+                        <option value="Ton">Ton</option>
+                    </select>
+                </div>
+            </div>
+            <div class="mb-3">
+                <label for="receivedDate" class="form-label">Received Date</label>
+                <input type="date" id="receivedDate" class="form-control">
+            </div>
+            <button type="button" class="btn btn-success w-100" onclick="updateMaterialStock()">Submit</button>
+        </form>
+    </div>
+
+    <!-- Bootstrap JS and Dependencies -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        function updateMaterialStock() {
+            const material = document.getElementById('material').value;
+            const supplier = document.getElementById('supplier').value;
+            const constructionArea = document.getElementById('constructionArea').value;
+            const quantity = document.getElementById('quantity').value;
+            const unit = document.getElementById('unit').value;
+            const receivedDate = document.getElementById('receivedDate').value;
+
+            console.log('Material:', material);
+            console.log('Supplier:', supplier);
+            console.log('Construction Area:', constructionArea);
+            console.log('Quantity:', quantity, unit);
+            console.log('Received Date:', receivedDate);
+
+            alert('Material stock updated successfully!');
+        }
+    </script>
+</body>
+</html>

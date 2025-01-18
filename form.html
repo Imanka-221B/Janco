@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Employee Registration Form</title>
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+  body {
+  background-color: #f9f9f9;
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+.form-container {
+  background-color: white;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+  max-width: 90%;
+  margin: 20px auto;
+}
+
+.form-title {
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin-bottom: 20px;
+  color: #154734;
+  text-align: center;
+}
+
+.btn-register {
+  background-color: #28a745;
+  color: white;
+  font-weight: bold;
+  width: 100%;
+}
+
+.btn-register:hover {
+  background-color: #218838;
+}
+
+.dropdown {
+  position: relative;
+  display: inline-block;
+  width: 100%;
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+  padding: 15px;
+  margin-left: -10px;
+}
+
+.dropdown-select {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  border: 1px solid #ccc;
+  padding: 10px;
+  border-radius: 4px;
+}
+
+.option {
+  background-color: #e0e0e0;
+  padding: 5px 10px;
+  border-radius: 3px;
+  display: flex;
+  align-items: center;
+}
+
+.option span {
+  margin-left: 8px;
+  cursor: pointer;
+  color: red;
+  font-weight: bold;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .form-container,
+  .dropdown {
+    max-width: 95%;
+    padding: 15px;
+    
+  }
+
+  .form-title {
+    font-size: 1.2rem;
+  }
+
+  .dropdown-select {
+    gap: 5px;
+    padding: 8px;
+  }
+
+  .option {
+    font-size: 0.9rem;
+    padding: 5px 8px;
+  }
+}
+
+@media (max-width: 480px) {
+  .form-title {
+    font-size: 1rem;
+  }
+
+  .btn-register {
+    font-size: 0.9rem;
+  }
+
+  .option {
+    font-size: 0.8rem;
+    padding: 5px 6px;
+  }
+}
+
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <div class="form-container">
+      <h2 class="form-title text-center">Employee Registration</h2>
+      <form id="employeeForm">
+        <div class="mb-3">
+          <label for="supplierID" class="form-label">Supplier ID</label>
+          <input type="text" class="form-control" id="supplierID" placeholder="Supplier ID"value="" required>
+        </div>
+        <div class="mb-3">
+          <label for="name" class="form-label">Name</label>
+          <input type="text" class="form-control" id="name" placeholder="Enter name" required>
+        </div>
+        <div class="mb-3">
+          <label for="phoneNumber" class="form-label">Phone Number</label>
+          <input type="text" class="form-control" id="phoneNumber" placeholder="Enter phone number" required>
+        </div>
+        <div class="mb-3">
+          <label  for="position" class="form-label">Position</label>
+          <input type="text" class="form-control" id="position" placeholder="Enter position" required>
+        </div>
+        
+          </div>
+        
+        <button type="submit" class="btn btn-register w-100">Register</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- Bootstrap JS Bundle -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"></script>
+  <!-- JavaScript -->
+  <script>
+    document.getElementById('employeeForm').addEventListener('submit', function (event) {
+      event.preventDefault();
+
+      const supplierID = document.getElementById('supplierID').value;
+      const name = document.getElementById('name').value;
+      const phoneNumber = document.getElementById('phoneNumber').value;
+      const position = document.getElementById('position').value;
+      const access = Array.from(document.getElementById('access').selectedOptions).map(option => option.value);
+
+      console.log('Form Submitted:');
+      console.log({ supplierID, name, phoneNumber, position, access });
+
+      alert('Employee registered successfully!');
+      this.reset();
+    });
+    function removeOption(element) {
+      const option = element.parentElement;
+      option.remove();
+    }
+  </script>
+</body>
+
+</html>
